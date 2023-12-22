@@ -1,0 +1,57 @@
+#root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.counter-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.counter-container button {
+  border-radius: 8px;
+  border: 0px solid rgb(99, 246, 50);
+  width: 48vw;
+  height: 85vh;
+  font-size: 20em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+}
+
+.decrement-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 2%
+}
+
+.decrement-container button {
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-buttons {
+  display: flex;
+  gap: 10px;
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.video {
+  width: 100vw;
+  height: 98vh;
+}
