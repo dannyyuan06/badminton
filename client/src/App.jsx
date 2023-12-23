@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import { io } from 'socket.io-client';
-const socket = io('192.168.1.191:3001');
+const socket = io('192.168.137.1:3001');
 
 function App() {
   const [leftCount, setLeftCount] = useState(0)
@@ -44,14 +44,11 @@ function App() {
 
   const challengeHandler = (wide) => {
     setTimeout(() => {
-      setVideo(
-        <video className='video' src={`/assets/${Math.random() < 0.5 ? "in" : "out"}_${wide}.mp4`} autoPlay muted>
-        </video>
-      )
+      setVideo(`/assets/${Math.random() < 0.5 ? "in" : "out"}_${wide}.mp4`)
     }, 500)
     setTimeout(() => {
-      setVideo(null)
-    }, 10000);
+      setVideo("")
+    }, 13000);
   }
 
   return (
@@ -78,7 +75,11 @@ function App() {
         </div>
       </div>
       <div className="popup">
-        {video}
+        {
+          video && 
+          <video className='video' src={video} autoPlay muted>
+        </video>
+        }
       </div>
     </>
   )
