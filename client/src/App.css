@@ -13,6 +13,16 @@
   margin-top: 10px;
 }
 
+button {
+  color: white;
+}
+
+@media screen and (max-width: 1300px) {
+  .counter-container button {
+    font-size: 6em !important;
+  }
+}
+
 .counter-container button {
   border-radius: 8px;
   border: 0px solid rgb(99, 246, 50);
@@ -37,6 +47,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: rgb(134, 134, 134);
+  border: none;
+  border-radius: 5px;
 }
 
 .side-buttons {
