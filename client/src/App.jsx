@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import './App.css'
 import { io } from 'socket.io-client';
-const socket = io('192.168.137.1:3001');
+const socket = io('192.168.1.191:3001');
 
 function App() {
   const [leftCount, setLeftCount] = useState(0)
