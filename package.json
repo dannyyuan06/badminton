@@ -1,0 +1,15 @@
+{
+  "name": "badminton",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "npm run host --workspace=client & node . --workspace=server"
+  },
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "author": "",
+  "license": "ISC"
+}
