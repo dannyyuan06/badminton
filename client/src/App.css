@@ -19,8 +19,17 @@ button {
 }
 
 @media screen and (max-width: 1300px) {
-  .counter-container button {
-    font-size: 6em !important;
+  #root .counter-container {
+    justify-content: center;
+  }
+  #root .counter-container button {
+    font-size: 6em;
+    height: 70vh;
+    width: 100%;
+  }
+  .side-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
   }
 }
 
