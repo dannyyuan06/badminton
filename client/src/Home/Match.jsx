@@ -29,7 +29,7 @@ export default function Matches({ courtNo, matches }) {
               <div
                 className="underline"
                 key={index}
-                style={{ border: "solid white 0.5px", width: "100%" }}
+                style={{ border: "solid var(--font-color) 0.5px", width: "100%" }}
               />
             )}
           </>
@@ -84,6 +84,7 @@ function Match({ player1, player2, score1, score2, server, winner, currGame, cou
           ></div>
           <input
             ref={score1Ref}
+            onFocus={() => setScore1("")}
             onChange={(e) => setScore1(e.currentTarget.value)}
             onKeyUp={(e) => {if( e.key === "Enter" || e.key === " ") enterHandler1()}}
             onBlur={blurHandler}
@@ -100,6 +101,7 @@ function Match({ player1, player2, score1, score2, server, winner, currGame, cou
         <div className="match-score">
           <input
             ref={score2Ref}
+            onFocus={() => setScore2("")}
             onChange={(e) => setScore2(e.currentTarget.value)}
             onKeyUp={(e) => {if( e.key === "Enter" || e.key === " ") enterHandler2()}}
             onBlur={blurHandler}

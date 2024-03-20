@@ -24,10 +24,14 @@
   align-items: center;
   width: 100px;
   height: 30px;
-  color: white;
+  color: var(--font-color);
   font-weight: normal;
   font-size: small;
-  background-color: #777;
+  background-color: var(--button-background-color);
+}
+
+.counter-buttons button:hover, .counter-buttons a:hover {
+  color: #6d6d6d
 }
 
 .counter-buttons div {
@@ -95,7 +99,7 @@
   font-weight: 500;
   padding-bottom: 30px;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--background-color);
   cursor: pointer;
 }
 
@@ -111,7 +115,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(134, 134, 134);
+  background-color: var(--button-background-color);
   border: none;
   border-radius: 5px;
 }

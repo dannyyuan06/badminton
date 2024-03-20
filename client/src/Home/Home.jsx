@@ -13,6 +13,11 @@ export default function Home() {
   const leaders = getLeaders(courtScores)
   const nextGames = getNextGames(courtScores)
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    const saved = localStorage.getItem("darkMode");
+    const initialValue = JSON.parse(saved);
+    return initialValue;
+  })
 
   const toggleFullscreen = () => {
     if (!isFullscreen) {
@@ -21,6 +26,25 @@ export default function Home() {
       document.exitFullscreen();
     }
   };
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.style.setProperty('--background-background-color', '#ffffff');
+      document.documentElement.style.setProperty('--green-color', '#A6D6C9');
+      document.documentElement.style.setProperty('--font-color', 'black');
+      document.documentElement.style.setProperty('--background-color', '#eeeeee');
+      document.documentElement.style.setProperty('--button-background-color', '#e7e7e7');
+      document.documentElement.style.setProperty('--yellow-color', '#F7D117');
+    }
+    else {
+      document.documentElement.style.setProperty('--background-background-color', '#242424');
+      document.documentElement.style.setProperty('--green-color', '#4e7e71');
+      document.documentElement.style.setProperty('--font-color', 'white');
+      document.documentElement.style.setProperty('--background-color', '#1a1a1a');
+      document.documentElement.style.setProperty('--button-background-color', '#868686');
+      document.documentElement.style.setProperty('--yellow-color', '#F7D117');
+    }
+  }, [darkMode])  
 
   useEffect(() => {
     const noSleep = new NoSleep();
@@ -81,6 +105,11 @@ export default function Home() {
             <img style={{filter: "invert(1)"}} width={50} height={50} alt="full screen" src="/exitfullscreen.svg"/>
           </button>
           }
+          <button className="home-screen-btn" style={{color: "white"}} onClick={() => setDarkMode(prev => {localStorage.setItem("darkMode", `${!prev}`);return !prev})}>
+            {
+              darkMode ? "LIGHT": "DARK"
+            }
+          </button>
           
         </div>
         <div className="home-next-matches">
