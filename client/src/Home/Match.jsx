@@ -51,8 +51,9 @@ function Match({ player1, player2, score1, score2, server, winner, currGame, cou
   }, [score1, score2])
 
   const enterHandler1 = () => {
-    score2Ref.current.blur()
     setScore2("")
+    requestAnimationFrame(() => setScore2(""))
+    score1Ref.current.blur()
     score2Ref.current.focus()
   };
 
@@ -64,10 +65,11 @@ function Match({ player1, player2, score1, score2, server, winner, currGame, cou
     const score111 = score11 === "" ? "0" : score11
     const score222 = score22 === "" ? "0" : score22
     const winner = determineWinner(score111, score222)
+    const finishServer = winner !== 0 ? winner - 1: server
     update(ref(db, `courts/${parseInt(courtNo)-1}/games/${index}`), 
       {
         scores: [parseInt(score111), parseInt(score222)],
-        server,
+        server: finishServer,
         winner
       }
     )
