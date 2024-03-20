@@ -1,0 +1,89 @@
+.home-container {
+  padding: 20px;
+  padding-top: 10px;
+  flex-direction: column;
+  gap: 20px;
+  overflow: auto;
+  color: white
+}
+
+
+.home-leaders-container {
+  flex-direction: column;
+  flex: 1;
+}
+
+.home-right-split {
+  gap: 20px;
+}
+
+.home-screen-btn {
+  background-color: #191a19;
+  margin: 10px 0;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.home-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  column-gap: 30px;
+  width: 100%; 
+}
+
+@media screen and (max-width: 1000px) {
+  #root .home-split {
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px
+  }
+  #root .home-right-split {
+    flex-direction: column;
+    padding-bottom: 100px;
+  }
+}
+
+.home-next-matches {
+  flex-direction: column;
+  flex: 1
+}
+
+.home-leaders {
+  flex-direction: column;
+}
+
+.home-leader-title {
+  font-weight: bold;
+}
+
+.home-leader-title div {
+  justify-content: center;
+}
+
+.lb-player {
+  flex: 3;
+}
+
+.lb-num-wins {
+  flex: 1;
+  justify-content: center;
+}
+
+.lb-points {
+  flex: 1;
+  justify-content: center;
+}
+
+.home-next-match {
+  margin-bottom: 3px;
+  font-weight: bold;
+}
+
+.home-next-match-children {
+  flex-direction: column;
+}

@@ -1,0 +1,86 @@
+.match-container {
+  display: flex;
+  color: white;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.match-container a:hover {
+  color: #c5c9d5;
+}
+
+.match-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 10px;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+.match-player {
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
+}
+
+.match-score {
+  align-items: center;
+}
+
+@media screen and (max-width: 1000px) {
+  #root .match-wrapper {
+    display: none;
+    flex-direction: column;
+  }
+
+  #root .match-wrapper .match-score {
+    display: none;
+  }
+
+  #root .underline {
+    display: none;
+  }
+
+  #root .green-game {
+    display: flex;
+  }
+
+  #root .match-player {
+    width: 100%;
+  }
+}
+
+
+.match-scoring {
+  width: 18px;
+  justify-content: center;
+
+}
+.match-server {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #F7D117;
+  margin: 0 5px;
+}
+
+.match-container a {
+  color: white;
+}
+
+.match-container input[type=number] {
+  text-align: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 0;
+  font-size: 1.04em;
+  font-family:  Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.match-container input[type=number]::-webkit-inner-spin-button, 
+.match-container input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}

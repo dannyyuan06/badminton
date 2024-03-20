@@ -1,0 +1,135 @@
+.counter-wrapper {
+  flex-direction: column;
+  padding: 10px;
+}
+
+.counter-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.counter-buttons button:hover {
+  color: #c5c9d5;
+}
+
+.counter-buttons a:hover {
+  color: #c5c9d5;
+}
+
+.counter-buttons button, .counter-buttons a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+  color: white;
+  font-weight: normal;
+  font-size: small;
+  background-color: #777;
+}
+
+.counter-buttons div {
+  width: 200px;
+  justify-content: center;
+}
+
+.counter-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+
+
+@media screen and (max-width: 1000px) {
+  #root .counter-container {
+    justify-content: center;
+    gap: 30px;
+  }
+  #root .counter-container button {
+    font-size: 5em;
+    height: 50vh;
+    flex: 1
+  }
+  .side-buttons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #root .decrement-container button {
+    padding: 10px;
+    height: 30px;
+  }
+
+  #root .counter-switch {
+    margin: 0
+  }
+
+  #root .counter-reset {
+    font-size: 1em;
+  }
+
+  #root .counter-buttons div {
+    grid-column: 4 / 6;
+    grid-row: 2;
+  }
+}
+
+.counter-switch {
+  margin: 0 80px;
+}
+
+.counter-reset {
+  font-size: 2em;
+  padding: 5px 20px 10px;
+}
+
+.counter-container button {
+  border-radius: 8px;
+  border: 0px solid rgb(99, 246, 50);
+  width: 48vw;
+  height: 85vh;
+  font-size: 30em;
+  font-weight: 500;
+  padding-bottom: 30px;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+}
+
+.decrement-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  gap: 10px;
+}
+
+.decrement-container button {
+  padding: 5px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(134, 134, 134);
+  border: none;
+  border-radius: 5px;
+}
+
+.side-buttons {
+  display: flex;
+  gap: 10px;
+}
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+}
+
+.video {
+  width: 100vw;
+  height: 98vh;
+}
