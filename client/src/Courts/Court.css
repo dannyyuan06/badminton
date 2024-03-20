@@ -1,6 +1,7 @@
 .counter-wrapper {
   flex-direction: column;
   padding: 10px;
+  color: var(--font-color)
 }
 
 .counter-buttons {

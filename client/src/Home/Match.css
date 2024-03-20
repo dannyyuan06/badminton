@@ -23,6 +23,7 @@
   flex-direction: row;
   justify-content: space-between;
   width: 50%;
+  color: var(--font-color);
 }
 
 .match-score {

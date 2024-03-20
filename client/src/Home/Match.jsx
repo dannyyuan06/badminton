@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./Match.css";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ref, set, update } from "firebase/database";
 import { db } from "../App";
 import { determineWinner } from "../Courts/Court";
@@ -45,8 +45,14 @@ function Match({ player1, player2, score1, score2, server, winner, currGame, cou
   const score1Ref = useRef(null);
   const score2Ref = useRef(null);
 
+  useEffect(() => {
+    setScore1(score1)
+    setScore2(score2)
+  }, [score1, score2])
+
   const enterHandler1 = () => {
     score2Ref.current.blur()
+    setScore2("")
     score2Ref.current.focus()
   };
 
@@ -55,16 +61,20 @@ function Match({ player1, player2, score1, score2, server, winner, currGame, cou
   };
 
   const blurHandler = () => {
-    const winner = determineWinner(score11, score22)
+    const score111 = score11 === "" ? "0" : score11
+    const score222 = score22 === "" ? "0" : score22
+    const winner = determineWinner(score111, score222)
     update(ref(db, `courts/${parseInt(courtNo)-1}/games/${index}`), 
       {
-        scores: [parseInt(score11), parseInt(score22)],
+        scores: [parseInt(score111), parseInt(score222)],
         server,
         winner
       }
     )
     if (currGame && winner !== 0) set(ref(db, `courts/${parseInt(courtNo)-1}/currentGame`), index + 1)
     else if (winner === 0) set(ref(db, `courts/${parseInt(courtNo)-1}/currentGame`), index)
+    setScore1(score111)
+    setScore2(score222)
   }
 
   return (
