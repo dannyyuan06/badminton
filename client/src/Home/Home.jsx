@@ -219,8 +219,8 @@ function getLeaders(data) {
       const player2N = player2.split(" ")[0];
       if (winner != 0) {
         winner == 1 ? players[player1N].numWins++ : players[player2N].numWins++;
-        players[player1N].points += scores[0];
-        players[player2N].points += scores[1];
+        players[player1N].points += scores[0] > 21 ? 21: scores[0];
+        players[player2N].points += scores[1] > 21 ? 21: scores[1];
       }
     });
   });

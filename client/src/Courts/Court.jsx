@@ -116,7 +116,7 @@ export default function Court() {
 
 
 export function determineWinner(score1, score2) {
-  if (score1 >= 21 && score1 - score2 >= 2 || score1 == 30) return 1;
-  if (score2 >= 21 && score2 - score1 >= 2 || score2 == 30) return 2;
+  if (score1 == 21) return 1;
+  if (score2 == 21) return 2;
   return 0;
 }
