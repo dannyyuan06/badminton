@@ -721,4 +721,4 @@ export const tse = [
   }
 ]
 
-export const jse = ["Wellington", "Harrow", "Eton", "Abingdon"]
+export const jse = ["IC", "ICSM"]

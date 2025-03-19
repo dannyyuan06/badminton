@@ -12,7 +12,16 @@ export default function Matches({ courtNo, matches }) {
       </Link>
       {matches.map(
         ([{ player1, player2, scores, server, winner }, currGame], index) => (
-          <>
+          index % 3 == 0 ||
+           matches[index-1][0].winner != 0 && index % 3 == 1 ||
+           index % 3 == 2 && matches[index-2][0].winner + matches[index-1][0].winner == 3  ? <>
+            {index % 3 == 0 && index != 0 && (
+              <div
+                className="underline"
+                key={index}
+                style={{ border: "solid var(--font-color) 0.5px", width: "100%" }}
+              />
+            )}
             <Match
               player1={player1}
               player2={player2}
@@ -24,22 +33,16 @@ export default function Matches({ courtNo, matches }) {
               key={player1 + player2}
               currGame={currGame}
               index={index}
+              alreadyWonMatch={index % 3 == 1 ? matches[index-1][0].winner : 0}
             />
-            {index % 2 == 1 && index != matches.length - 1 && (
-              <div
-                className="underline"
-                key={index}
-                style={{ border: "solid var(--font-color) 0.5px", width: "100%" }}
-              />
-            )}
-          </>
+          </> : <></>
         )
       )}
     </div>
   );
 }
 
-function Match({ player1, player2, score1, score2, server, winner, currGame, courtNo, index }) {
+function Match({ player1, player2, score1, score2, server, winner, currGame, courtNo, index, alreadyWonMatch }) {
   const [score11, setScore1] = useState(score1);
   const [score22, setScore2] = useState(score2);
   const score1Ref = useRef(null);
@@ -73,7 +76,10 @@ function Match({ player1, player2, score1, score2, server, winner, currGame, cou
         winner
       }
     )
-    if (currGame && winner !== 0) set(ref(db, `courts/${parseInt(courtNo)-1}/currentGame`), index + 1)
+    if (currGame && winner !== 0) {
+      const addIndex = alreadyWonMatch + winner == 2 ? 2 : 1
+      set(ref(db, `courts/${parseInt(courtNo)-1}/currentGame`), index + addIndex)
+    }
     else if (winner === 0) set(ref(db, `courts/${parseInt(courtNo)-1}/currentGame`), index)
     setScore1(score111)
     setScore2(score222)
@@ -88,7 +94,7 @@ function Match({ player1, player2, score1, score2, server, winner, currGame, cou
         className="match-player"
         style={{ textDecoration: winner == 1 ? "underline" : "" }}
       >
-        <div className="match-players">{player1}</div>
+        <div className="match-players" style={index % 3 == 0 ? {} : {opacity: 0}}>{player1}</div>
         <div className="match-score">
           <div
             className="match-server"
@@ -126,7 +132,7 @@ function Match({ player1, player2, score1, score2, server, winner, currGame, cou
             style={{ opacity: server == 1 ? 1 : 0 }}
           ></div>
         </div>
-        <div className="match-players">{player2}</div>
+        <div className="match-players" style={index % 3 == 0 ? {} : {opacity: 0}}>{player2}</div>
       </div>
     </div>
   );
