@@ -26,6 +26,6 @@ Designed for use in club or tournament settings, it displays live court scores, 
   Uses [`NoSleep.js`](https://github.com/richtr/NoSleep.js) to prevent the screen from turning off during long sessions.
 
 ## Author
-
+# Danny
 Built as part of a badminton tournament management tool.
 Studying Computing at Imperial College London.
