@@ -3,6 +3,7 @@
 A real-time **badminton match tracker and leaderboard system** built using **React**, **Firebase Realtime Database**, and **NoSleep.js**.  
 Designed for use in club or tournament settings, it displays live court scores, leaderboards, and upcoming matches on a fullscreen interface.
 
+Visit: [https://badm-5eeb6.web.app/](https://badm-5eeb6.web.app/)
 ---
 
 ## 🚀 Features
